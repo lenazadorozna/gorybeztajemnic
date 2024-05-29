@@ -1,0 +1,135 @@
+
+html, body, header, nav, main, article, aside, footer {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    width: 100%;
+    height: auto;
+    overflow-x: hidden; 
+    background-color: #d6f6fc; /* Białe tło */
+}
+
+
+a:link,
+a:visited {
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover,
+a:active {
+    color: rgb(17, 92, 120);
+    background-color: transparent;
+    text-decoration: none;
+}
+
+
+header {
+    width: 100%;
+    height: 200px;
+    background-image: url('tlo_menu.jpeg'); 
+    background-size: cover; 
+    background-position: center; 
+    text-align: center;
+    padding-top: 100px;
+    border: none;
+    color: white; 
+}
+
+
+nav {
+    background: rgb(235, 231, 231);
+    width: 200px;
+    height: 100%;
+    float: left;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    padding: 10px;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+}
+
+
+main {
+    padding: 10px;
+    width: calc(100% - 450px); 
+    float: left;
+}
+
+
+article {
+    background-color: #a1def4;
+    padding: 20px;
+    height: 100%;
+    text-align: center;
+}
+
+
+
+
+footer {
+    width: 100%;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    color: #333;
+    text-align: center;
+    clear: both; 
+}
+
+
+nav ul li a:hover {
+    color: rgb(29, 102, 122); 
+    text-decoration: none; 
+}
+
+
+
+
+/* Poprawiony styl dla kontenera ikony góry */
+.mountain-icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 60%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 120px; /* Dostosuj wielkość ikony góry */
+    height: 120px;
+    z-index: 9999; /* Ustaw na wierzchu */
+    background-color: #a1def4;
+}
+
+
+.mountain-icon {
+    width: 100%;
+    height: 100%;
+    background-image: url('ikona.jpeg'); /* Ścieżka do obrazka ikony góry */
+    background-size: cover;
+    animation: blink 1.5s infinite; /* Animacja migania */
+}
+
+@keyframes blink {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0;
+    }
+}
+

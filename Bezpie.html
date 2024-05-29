@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Prezentacja - Bezpieczeństwo w górach</title>
+    <link rel="stylesheet" type="text/css" href="styl_menu_preze.css">
+</head>
+<body>
+    <header>
+        <h1>Góry (pasma, szczyty, KGP)</h1>
+    </header>    
+    <nav>
+        <ul>
+            <li><a href="menu.html">STRONA GŁÓWNA</a></li>
+            <li><a href="KGP.html">Korona Gór Polskich</a></li>
+            <li><a href="najpasma.html">Najpiękniejsze Pasma</a></li>
+            <li><a href="trasyddzieci.html">Szlaki górskie dla dzieci</a></li>
+            <li><a href="Bezpie.html">Bezpieczeństwo w górach</a></li>
+            <li><a href="przelicz.html">Twój przelicznik</a></li>
+            <li><a href="galeria.html">Galeria obrazów</a></li>
+            <li><a href="zMAP.html">Mapa</a></li>
+            <li><a href="zCANVAS.html">Narysuj swoją górę</a></li>
+            <li><a href="zaloguj.html">ZALOGUJ SIĘ</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="container">
+            <div class="slide active">
+                <h2>Bezpieczeństwo w Górach: Kluczowe Zagadnienia</h2>
+                <p>Krótkie wprowadzenie na temat znaczenia bezpieczeństwa podczas wędrówek górskich.</p>
+                <p>Cel prezentacji: przedstawienie najważniejszych zasad i praktyk zapewniających bezpieczne doświadczenia w górach.</p>
+            </div>
+            <div class="slide">
+                <h2>Planowanie Trasy i Prognoza Pogody</h2>
+                <p>Zawsze planuj trasę z wyprzedzeniem, biorąc pod uwagę długość, trudność i warunki terenowe.</p>
+                <p>Sprawdź aktualne prognozy pogody i dostosuj plany w razie złych warunków.</p>
+                <p>Miej plan awaryjny na wypadek nieprzewidzianych sytuacji.</p>
+            </div>
+            <div class="slide">
+                <h2>Odpowiedni Sprzęt i Odzież</h2>
+                <p>Ubierz się warstwowo, dostosowując odzież do zmieniających się warunków pogodowych.</p>
+                <p>Zabierz ze sobą niezbędny sprzęt: mapę, kompas, GPS, latarkę, zapasowe baterie.</p>
+                <p>Pamiętaj o odpowiednim obuwiu, plecaku, apteczce pierwszej pomocy, zapasie wody i jedzenia.</p>
+            </div>
+            <div class="slide">
+                <h2>Nawigacja i Orientacja w Terenie</h2>
+                <p>Naucz się korzystać z mapy i kompasu oraz innych narzędzi nawigacyjnych.</p>
+                <p>Bądź świadomy swojego otoczenia i oznaczeń szlaków.</p>
+                <p>Zapisz ważne punkty orientacyjne i miejsca, gdzie możesz schronić się w razie potrzeby.</p>
+            </div>
+            <div class="slide">
+                <h2>Zasady Poruszania się po Górach</h2>
+                <p>Zawsze informuj kogoś o swojej trasie i planowanym czasie powrotu.</p>
+                <p>Wędruj w grupach, jeśli to możliwe, nigdy nie chodź sam w trudne tereny.</p>
+                <p>Zachowuj ostrożność na stromych zboczach, przy przekraczaniu rzek i innych potencjalnie niebezpiecznych miejscach.</p>
+            </div>
+            <div class="slide">
+                <h2>Reagowanie na Sytuacje Awaryjne</h2>
+                <p>Znaj swoje możliwości i nie przeceniaj swoich umiejętności.</p>
+                <p>W razie wypadku, pozostań w jednym miejscu, zadzwoń po pomoc, używaj sygnałów SOS.</p>
+                <p>Miej zawsze przy sobie numery alarmowe i podstawową wiedzę na temat pierwszej pomocy.</p>
+            </div>
+            <div class="slide">
+                <h2>Podsumowanie</h2>
+                <p>Przestrzeganie zasad bezpieczeństwa zapewnia nie tylko udaną, ale przede wszystkim bezpieczną wędrówkę.</p>
+                <p>Zachęcamy do zdobywania wiedzy i przygotowania przed każdą wyprawą w góry.</p>
+                <p>Pamiętaj: bezpieczeństwo jest najważniejsze!</p>
+            </div>
+            <div class="controls">
+                <button class="button" id="prevBtn">Poprzedni</button>
+                <button class="button" id="nextBtn">Następny</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        Projekt strony internetowej wykonany w ramach zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka. <br>
+        Lena Zadorożna <br>
+        <iframe src="elementydodatkowe.html" style="width: 100%; height: 100%; border: none;"></iframe>
+    </footer>
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowRight') {
+                nextSlide();
+            } else if (event.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
+
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>

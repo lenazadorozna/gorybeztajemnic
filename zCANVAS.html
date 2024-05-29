@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Strona główna</title>
+    <link rel="stylesheet" type="text/css" href="styl_narysuj.css">
+</head>
+<body>
+    <header style="background-image: url('tlo_menu.jpeg'); padding-top: 100px;">
+        <h1>Góry (pasma, szczyty, KGP)</h1>
+    </header>    
+    <nav>
+        <ul>
+            <li><a href="menu.html">STRONA GŁÓWNA</a></li>
+            <li><a href="KGP.html">Korona Gór Polskich</a></li>
+            <li><a href="najpasma.html">Najpiękniejsze Pasma</a></li>
+            <li><a href="trasyddzieci.html">Szlaki górskie dla dzieci</a></li>
+            <li><a href="Bezpie.html">Bezpieczeństwo w górach</a></li>
+            <li><a href="przelicz.html">Twój przelicznik</a></li>
+            <li><a href="galeria.html">Galeria obrazów</a></li>
+            <li><a href="zMAP.html">Mapa</a></li>
+            <li><a href="zCANVAS.html">Narysuj swoją górę</a></li>
+            <li><a href="zaloguj.html">ZALOGUJ SIĘ</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="container-main">
+            <h2  style="margin-top:10px">Narysuj swoją górę</h2>
+    
+            <canvas id="drawingCanvas" width="700" height="450"></canvas>
+            <div class="tool-button">
+                <button id="drawFreehand" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> Ołówek</button>
+                <button id="drawCircle" class="btn btn-info"><i class="far fa-circle"></i> Okrąg</button>
+                <button id="drawSquare" class="btn btn-warning"><i class="fas fa-square"></i> Kwadrat</button>
+                <button id="drawTriangle" class="btn btn-dark"><i class="fas fa-play"></i> Trójkąt</button>
+            </div>
+            <div class="tool-button">
+                <button id="clearCanvas" class="btn btn-danger"><i class="fas fa-eraser"></i> Wyczyść</button>
+                <button id="undoCanvas" class="btn btn-secondary"><i class="fas fa-undo"></i> Cofnij</button>
+                <button id="saveCanvas" class="btn btn-success"><i class="fas fa-save"></i> Zapisz</button>
+            </div>
+
+            <script src="zCANVAS.js"></script>
+        </div>
+    </main>
+    <footer>
+        Projekt strony internetowej wykonany w ramach zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka. <br>
+        Lena Zadorożna <br>
+        <iframe src="elementydodatkowe.html" style="width: 100%; height: 100%; border: none;"></iframe>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Strona główna</title>
+    <link rel="stylesheet" type="text/css" href="styl_menu.css">
+    <style>
+        /* Dodatkowe style dla responsywności */
+        #map-container {
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        #map {
+            width: 100%;
+            height: auto;
+        }
+
+        .area-info {
+            display: none;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            margin-top: 20px;
+        }
+
+        /* Dodatkowe style dla mniejszych ekranów */
+        @media screen and (max-width: 600px) {
+            area {
+                cursor: pointer;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header style="background-image: url('tlo_menu.jpeg'); padding-top: 100px;">
+        <h1>Góry (pasma, szczyty, KGP)</h1>
+    </header>    
+    <nav>
+        <ul>
+            <li><a href="menu.html">STRONA GŁÓWNA</a></li>
+            <li><a href="KGP.html">Korona Gór Polskich</a></li>
+            <li><a href="najpasma.html">Najpiękniejsze Pasma</a></li>
+            <li><a href="trasyddzieci.html">Szlaki górskie dla dzieci</a></li>
+            <li><a href="Bezpie.html">Bezpieczeństwo w górach</a></li>
+            <li><a href="przelicz.html">Twój przelicznik</a></li>
+            <li><a href="galeria.html">Galeria obrazów</a></li>
+            <li><a href="zMAP.html">Mapa</a></li>
+            <li><a href="zCANVAS.html">Narysuj swoją górę</a></li>
+            <li><a href="zaloguj.html">ZALOGUJ SIĘ</a></li>
+        </ul>
+    </nav>
+    <main>
+        <article>
+            <div id="map-container">
+                <img src="znacznik_map.jpeg" alt="Mapa Gór" usemap="#znacznik_map" id="map">
+                <map name="znacznik_map">
+                    <area shape="circle" coords="76,103,80" title="Beskid Śląski" href="#" data-description="Beskid Śląski to pasmo górskie w południowej Polsce, będące częścią Karpat Zachodnich. Rozciąga się na pograniczu Polski i Czech, obejmując malownicze tereny, takie jak Wisła, Szczyrk i Ustroń. Szczytami charakterystycznymi dla tego regionu są Skrzyczne (1257 m n.p.m.) i Barania Góra (1220 m n.p.m.). Beskid Śląski jest popularnym miejscem turystyki pieszej, narciarskiej i rowerowej, znanym z pięknych krajobrazów, górskich szlaków i lokalnej kultury góralskiej.">
+                    <area shape="circle" coords="200,290,75" title="Tatry" href="#" data-description="Tatry to najwyższe pasmo górskie w Polsce, będące częścią Karpat. Znane są z majestatycznych szczytów, w tym Rysów (2503 m n.p.m.) i Giewontu (1894 m n.p.m.). Tatry rozciągają się na granicy Polski i Słowacji, oferując spektakularne widoki i różnorodne krajobrazy. Region ten jest popularny wśród turystów pieszych, narciarzy i wspinaczy, dzięki licznym szlakom turystycznym i trasom narciarskim.">
+                    <area shape="rect" coords="290,188,350,250" title="Pieniny" href="#" data-description="Pieniny to malownicze pasmo górskie w południowej Polsce, będące częścią Karpat. Znane są z charakterystycznych wapiennych skał, w tym słynnych Trzech Koron (982 m n.p.m.) i Sokolicy (747 m n.p.m.). Pieniny rozciągają się wzdłuż Dunajca, tworząc malowniczy przełom rzeki, popularny wśród miłośników spływów tratwami. Region ten jest również ceniony za różnorodne szlaki turystyczne, piękne widoki i unikalną przyrodę, która jest chroniona w Pienińskim Parku Narodowym.">
+                    <area shape="rect" coords="350,170,907,220" title="Beskid Niski" href="#" data-description="Beskid Niski to malownicze pasmo górskie w południowej Polsce, będące częścią Beskidów Zachodnich. Znany jest z łagodnych wzniesień i rozległych dolin, z najwyższym szczytem - Lackową (997 m n.p.m.). Beskid Niski oferuje spokojne krajobrazy, idealne dla miłośników pieszych wędrówek i rowerowych wycieczek.">
+                    <area shape="rect" coords="390,220,910,320" title="Bieszczady" href="#" data-description="Bieszczady to malownicze pasmo górskie w południowo-wschodniej Polsce, będące częścią Karpat. Znane są z dzikich, niezamieszkanych terenów i pięknych połonin, takich jak Połonina Wetlińska i Połonina Caryńska. Najwyższym szczytem polskich Bieszczad jest Tarnica (1346 m n.p.m.).">
+                </map>
+            </div>
+
+            <!-- Informacje o obszarach -->
+            <div class="area-info" id="area-info">
+                <h3 id="area-title"></h3>
+                <p id="area-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const areas = document.getElementsByTagName('area');
+                    const areaInfo = document.getElementById('area-info');
+                    const areaTitle = document.getElementById('area-title');
+                    const areaDescription = document.getElementById('area-description');
+
+                    Array.from(areas).forEach(function(area) {
+                        area.addEventListener('click', function(event) {
+                            event.preventDefault();
+                            areaTitle.textContent = this.title;
+                            areaDescription.textContent = this.getAttribute('data-description');
+                            areaInfo.style.display = 'block';
+
+                            // Dodatkowe ustawienia dla mniejszych ekranów
+                            if (window.innerWidth <= 600) {
+                                window.scrollTo({
+                                    top: areaInfo.offsetTop,
+                                    behavior: 'smooth'
+                                });
+                            }
+                        });
+                    });
+                });
+            </script>
+        </article>
+    </main>
+    <footer>
+        Projekt strony internetowej wykonany w ramach zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka. <br>
+        Lena Zadorożna <br>
+        <iframe src="elementydodatkowe.html" style="width: 100%; height: 100%; border: none;"></iframe>
+    </footer>
+</body>
+</html>

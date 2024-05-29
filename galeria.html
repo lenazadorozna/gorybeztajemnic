@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Strona główna</title>
+    <link rel="stylesheet" type="text/css" href="styl_galeria.css">
+</head>
+<body>
+    <header style="background-image: url('tlo_menu.jpeg'); padding-top: 100px;">
+        <h1>Góry (pasma, szczyty, KGP)</h1>
+    </header>    
+    <nav>
+        <ul>
+            <li><a href="menu.html">STRONA GŁÓWNA</a></li>
+            <li><a href="KGP.html">Korona Gór Polskich</a></li>
+            <li><a href="najpasma.html">Najpiękniejsze Pasma</a></li>
+            <li><a href="trasyddzieci.html">Szlaki górskie dla dzieci</a></li>
+            <li><a href="Bezpie.html">Bezpieczeństwo w górach</a></li>
+            <li><a href="przelicz.html">Twój przelicznik</a></li>
+            <li><a href="galeria.html">Galeria obrazów</a></li>
+            <li><a href="zMAP.html">Mapa</a></li>
+            <li><a href="zCANVAS.html">Narysuj swoją górę</a></li>
+            <li><a href="zaloguj.html">ZALOGUJ SIĘ</a></li>
+        </ul>
+    </nav>
+    <main>
+        
+        <div class="container">
+            <div class="slide active">
+                <img src="galeria1.jpeg" alt="zdjęcie1" style="max-width: 70%;" style="max-height: 70%;">
+                <p>Orla Perć (Tatry)</p>
+            </div>
+            <div class="slide">
+                <img src="galeria2.jpeg" alt="zdjęcie2" style="max-width: 70%;" style="max-height: 50%;">
+                <p>Morskie Oko (Tatry)</p>
+            </div>
+            <div class="slide">
+                <img src="galeria3.jpeg" alt="zdjęcie3" style="max-width: 70%;" style="max-height: 50%;">
+                <p>Połonina Wetlińska (Bieszczady)</p>
+            </div>
+            <div class="slide">
+                <img src="galeria4.jpeg" alt="Zasady Poruszania się po Górach" style="max-width: 70%;" style="max-height: 50%;">
+                <p>Jezioro Solińskie (Bieszczady)</p>
+            </div>
+            <div class="slide">
+                <img src="galeria5.jpeg" alt="Reagowanie na Sytuacje Awaryjne" style="max-width: 70%;" style="max-height: 50%;">
+                <p>Śnieżka (Sudety)</p>
+            </div>
+            <div class="slide">
+                <img src="galeria6.jpeg" alt="Podsumowanie" style="max-width: 70%;" style="max-height: 50%;">
+                <p>Wodospad Kamieńczka (Sudety)</p>
+            </div>
+            <div class="slide">
+                <img src="galeria7.jpeg" alt="Podsumowanie" style="max-width: 70%;" style="max-height: 50%;">
+                <p>Trzy Korony (Pieniny)</p>
+            </div>
+            <div class="slide">
+                <img src="galeria8.jpeg" alt="Podsumowanie" style="max-width: 70%;" style="max-height: 50%;">
+                <p>Sokolica (Pieniny)</p>
+            </div>
+            <div class="controls">
+                <button class="button" id="prevBtn">Poprzedni</button>
+                <button class="button" id="nextBtn">Następny</button>
+            </div>
+        </div>
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+        });
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        showSlide(currentSlide);
+    }
+
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowRight') {
+            nextSlide();
+        } else if (event.key === 'ArrowLeft') {
+            prevSlide();
+        }
+    });
+
+    showSlide(currentSlide);
+        </script>
+      </main>
+    <footer>
+        Projekt strony internetowej wykonany w ramach zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka. <br>
+        Lena Zadorożna <br>
+        <iframe src="elementydodatkowe.html" style="width: 100%; height: 100%; border: none;"></iframe>
+    </footer>
+</body>
+</html>

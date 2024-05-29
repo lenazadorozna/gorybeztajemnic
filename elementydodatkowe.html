@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Website Metrics</title>
+        <style>
+
+    
+            .metrics {
+                margin-top: 20px;
+                text-align: center;
+            }
+    
+            .metrics div {
+                text-align: center;
+                margin-bottom: 0px;
+            }
+        </style>
+    </head>
+    <body>
+        <div 
+            
+            <div class="metrics">
+                <p>Twoja wizyta na stronie</p>
+                <div id="clock"></div>
+                <div id="date"></div>
+                <div>Visits: <span id="visitCount">0</span></div>
+                <div>Time Spent: <span id="timeSpent">0s</span></div>
+            </div>
+        </div>
+    
+        <script>
+
+        function updateClock() {
+            const now = new Date();
+            const clock = document.getElementById('clock');
+            const date = document.getElementById('date');
+            clock.textContent = now.toLocaleTimeString();
+            date.textContent = now.toLocaleDateString();
+        }
+        setInterval(updateClock, 1000);
+        updateClock(); 
+
+    
+
+            function updateDate() {
+                const now = new Date();
+                const date = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()}`;
+                document.getElementById('date').textContent = date;
+            }
+
+        function updateVisitCount() {
+            if (!sessionStorage.getItem('visited')) {
+                let visitCount = localStorage.getItem('visitCount');
+                if (!visitCount) {
+                    visitCount = 0;
+                }
+                visitCount++;
+                localStorage.setItem('visitCount', visitCount);
+                sessionStorage.setItem('visited', 'true'); 
+            }
+            document.getElementById('visitCount').textContent = localStorage.getItem('visitCount');
+        }
+        updateVisitCount();
+
+
+        let timeSpent = parseInt(sessionStorage.getItem('timeSpent')) || 0;
+        function updateTimeSpent() {
+            timeSpent++;
+            sessionStorage.setItem('timeSpent', timeSpent);
+            document.getElementById('timeSpent').textContent = timeSpent + 's';
+        }
+        setInterval(updateTimeSpent, 1000);
+        updateTimeSpent(); 
+
+
+        </script>
+    </body>
+</html>
